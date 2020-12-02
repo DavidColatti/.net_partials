@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "David's Page";
+}
+
+<div class="placeholders mb-2">
+
+    @(Html.Kendo().Chat()
+        .Name("chat")
+        // The user configuration of the Chat.
+        .User(u => u
+            .Name("ChatBot Name")
+            .IconUrl("https://demos.telerik.com/kendo-ui/content/chat/avatar.png")
+        )
+        // Attach the event handlers.
+        .Events(e => e
+            .Post("onPost")
+        )
+        // Configure the placeholder message.
+        .Messages(m => m
+            .Placeholder(@ViewBag.Info)
+        )
+    )
+</div>
+<script>
+    function onPost() {
+        console.log('Hi')
+    }
+</script>
